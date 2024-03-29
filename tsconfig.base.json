@@ -4,6 +4,8 @@
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
+    "strict": true,
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -14,7 +16,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@express-ts/core": ["core/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
