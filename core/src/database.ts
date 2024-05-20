@@ -52,10 +52,10 @@ export class Database<Entity extends object & { id: string }> {
     await fs.writeFile(this.databasePath, JSON.stringify(data, null, 2));
   }
 
-  async dalete(id: string) {
+  async delete(id: string) {
     const data = await this.readAll();
     const index = data.findIndex((item) => item.id === id);
-    data.slice(index, 1);
+    data.splice(index, 1);
     await fs.writeFile(this.databasePath, JSON.stringify(data, null, 2));
   }
 
