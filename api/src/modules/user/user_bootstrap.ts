@@ -1,6 +1,6 @@
 import { Database } from '@express-ts/core';
 import { UserController } from './user_controller';
-import { UserRespository } from './user_repository';
+import { UserRepository } from './user_repository';
 import { v4 as uuidv4 } from 'uuid';
 import { UserModel } from './user_model';
 
@@ -14,5 +14,5 @@ const db = new Database<UserModel>('users', {
     },
   ],
 });
-const userRespository = new UserRespository(db);
+const userRespository = new UserRepository(db);
 export const userController = new UserController(userRespository);
