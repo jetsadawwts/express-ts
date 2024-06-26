@@ -44,7 +44,7 @@ export class Database<Entity extends object & { id: string }> {
 
   async update(input: Entity) {
     const data = await this.readAll();
-    const index = data.findIndex((item) => item.id === item.id);
+    const index = data.findIndex((item) => item.id === input.id);
     data[index] = {
       ...data[index],
       ...input,
@@ -59,9 +59,9 @@ export class Database<Entity extends object & { id: string }> {
     await fs.writeFile(this.databasePath, JSON.stringify(data, null, 2));
   }
 
-  async insert(input: Entity) {
+  async insert(input: Omit<Entity, 'id'>) {
     const data = await this.readAll();
-    //Add a new chage
+    // Add a new change
     data.push({
       ...input,
       id: uuidv4(),
