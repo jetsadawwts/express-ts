@@ -1,9 +1,10 @@
-import { Database } from '@express-ts/core';
+import { Database, TypedRoute } from '@express-ts/core';
 import { UserController } from './user_controller';
 import { UserRepository } from './user_repository';
 import { v4 as uuidv4 } from 'uuid';
 import { UserModel } from './user_model';
 
+export const route = new TypedRoute();
 const db = new Database<UserModel>('users', {
   defaultData: [
     {
